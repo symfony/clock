@@ -70,12 +70,6 @@ final class MockClock implements ClockInterface
     {
         if (\is_string($timezone)) {
             $timezone = new \DateTimeZone($timezone);
-        } elseif (\is_string($timezone)) {
-            try {
-                $timezone = new \DateTimeZone($timezone);
-            } catch (\Exception $e) {
-                throw new \DateInvalidTimeZoneException($e->getMessage(), $e->getCode(), $e);
-            }
         }
 
         $clone = clone $this;
